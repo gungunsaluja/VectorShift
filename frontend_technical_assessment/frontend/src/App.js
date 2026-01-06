@@ -5,7 +5,6 @@ import { SubmitButton } from './submit';
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-vs-dark-950 via-vs-dark-900 to-vs-dark-950">
-      {/* Header */}
       <header className="bg-vs-dark-900/80 backdrop-blur-sm border-b border-vs-purple-900/30">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center gap-2">
@@ -18,8 +17,6 @@ function App() {
           </div>
         </div>
       </header>
-
-      {/* Main Content */}
       <div className="container mx-auto px-6 py-6">
         <PipelineToolbar />
         <PipelineUI />

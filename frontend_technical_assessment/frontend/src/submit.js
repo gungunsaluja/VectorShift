@@ -1,5 +1,3 @@
-// submit.js
-
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
 
@@ -32,12 +30,10 @@ export const SubmitButton = () => {
             }
 
             const data = await response.json();
-            
-            // Display user-friendly alert
             const dagStatus = data.is_dag ? 'Yes' : 'No';
             const message = `Pipeline Analysis Results:\n\n` +
                           `Number of Nodes: ${data.num_nodes}\n` +
-                          `Number of Edges: ${data.num_edges}\n` +
+                          `Number of Edges: ${data.num_edge}\n` +
                           `Is DAG: ${dagStatus}`;
             
             alert(message);

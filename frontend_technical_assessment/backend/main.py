@@ -5,7 +5,6 @@ from typing import List, Dict
 
 app = FastAPI()
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -43,14 +42,12 @@ def is_dag(nodes: List[Node], edges: List[Edge]) -> bool:
     if not nodes:
         return True
     
-    
     node_ids = {node.id for node in nodes}
     
     graph = {node.id: [] for node in nodes}
     for edge in edges:
         if edge.source in node_ids and edge.target in node_ids:
             graph[edge.source].append(edge.target)
-    
     
     visited = set()
     rec_stack = set()
@@ -60,19 +57,16 @@ def is_dag(nodes: List[Node], edges: List[Edge]) -> bool:
         visited.add(node_id)
         rec_stack.add(node_id)
         
-        # Check all neighbors
         for neighbor in graph.get(node_id, []):
             if neighbor not in visited:
                 if has_cycle(neighbor):
                     return True
             elif neighbor in rec_stack:
-                # Found a back edge, cycle detected
                 return True
         
         rec_stack.remove(node_id)
         return False
     
-    # Check for cycles starting from each unvisited node
     for node in nodes:
         if node.id not in visited:
             if has_cycle(node.id):
@@ -87,11 +81,11 @@ def read_root():
 @app.post('/pipelines/parse')
 def parse_pipeline(pipeline: PipelineRequest):
     num_nodes = len(pipeline.nodes)
-    num_edges = len(pipeline.edges)
+    num_edge = len(pipeline.edges)
     is_dag_result = is_dag(pipeline.nodes, pipeline.edges)
     
     return {
         'num_nodes': num_nodes,
-        'num_edges': num_edges,
+        'num_edge': num_edge,
         'is_dag': is_dag_result
     }
