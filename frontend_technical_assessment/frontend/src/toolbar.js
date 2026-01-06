@@ -13,6 +13,7 @@ export const PipelineToolbar = () => {
                 <DraggableNode type='filter' label='Filter' />
                 <DraggableNode type='transform' label='Transform' />
                 <DraggableNode type='split' label='Split' />
+                <DraggableNode type='merge' label='Merge' />
                 <DraggableNode type='conditional' label='Conditional' />
             </div>
         </div>

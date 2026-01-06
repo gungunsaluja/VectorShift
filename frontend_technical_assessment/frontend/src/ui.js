@@ -11,6 +11,7 @@ import { TransformNode } from './nodes/transformNode';
 
 import { SplitNode } from './nodes/splitNode';
 import { ConditionalNode } from './nodes/conditionalNode';
+import { MergeNode } from './nodes/mergeNode';
 
 import 'reactflow/dist/style.css';
 
@@ -26,6 +27,7 @@ const nodeTypes = {
   
   split: SplitNode,
   conditional: ConditionalNode,
+  merge: MergeNode,
 };
 
 const selector = (state) => ({

@@ -27,7 +27,7 @@ class Edge(BaseModel):
     targetHandle: str = None
     
     class Config:
-        extra = 'allow'  # Allow additional fields from ReactFlow
+        extra = 'allow'  
 
 class PipelineRequest(BaseModel):
     nodes: List[Node]
